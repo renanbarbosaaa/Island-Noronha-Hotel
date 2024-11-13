@@ -129,6 +129,8 @@ def editar_reserva(reservas, quartos):
     else:
         print("\033[31mNão há reservas para editar.\033[0m")
 
+# Função para limpar o sistema para uma nova reserva
+
 def sair():
     os.system('cls')
     titulo_hotel()
@@ -157,7 +159,7 @@ def processar_reserva(nome_cliente, quartos, reservas):
                     print("\033[31mData inválida. Use o formato DD-MM-AAAA.\033[0m")
 
             # Exibir o valor total da reserva antes de escolher o pagamento
-            print(f"\n\033[33m{nome_cliente}, o valor total da sua estadia de {num_noites} noite(s) será de: R$ {custo_total}\033[0m")
+            print(f"\n\033[33m{nome_cliente.capitalize()}, o valor total da sua estadia de {num_noites} noite(s) será de: R$ {custo_total}\033[0m")
 
             # Formas de pagamento
             print("\n\033[34mFormas de pagamento:\033[0m")
@@ -194,7 +196,7 @@ def processar_reserva(nome_cliente, quartos, reservas):
         else:
             print("\033[31mOpção de quarto inválida. Tente novamente.\033[0m")
 
-# Inicialização dos dados do hotel
+# Lista com tipos de quartos
 quartos_hotel = {
     '1': {'tipo': 'solteiro', 'camas': 1, 'preco': 100, 'disponiveis': 5},
     '2': {'tipo': 'solteiro', 'camas': 2, 'preco': 200, 'disponiveis': 5},
@@ -213,7 +215,7 @@ mostrar_instrucoes()
 nome_cliente = obter_nome_cliente()
 processar_reserva(nome_cliente, quartos_hotel, reservas)
 
-# Menu para operações adicionais
+# Menu exibido ao fazer uma reserva
 while True:
     print("\n\033[34mEscolha uma opção:\033[0m")
     print("1. Ver todas as reservas")
