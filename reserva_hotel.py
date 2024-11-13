@@ -129,6 +129,13 @@ def editar_reserva(reservas, quartos):
     else:
         print("\033[31mNão há reservas para editar.\033[0m")
 
+def sair():
+    os.system('cls')
+    titulo_hotel()
+    mostrar_instrucoes()
+    obter_nome_cliente()
+
+
 # Função para processar uma nova reserva
 def processar_reserva(nome_cliente, quartos, reservas):
     while True:
@@ -224,7 +231,6 @@ while True:
     elif opcao == '4':
         processar_reserva(nome_cliente, quartos_hotel, reservas)
     elif opcao == '5':
-        print("\033[32mEncerrando o sistema. Obrigado por usar o Island Noronha Hotel!\033[0m")
-        break
+        sair()
     else:
         print("\033[31mOpção inválida. Tente novamente.\033[0m")
